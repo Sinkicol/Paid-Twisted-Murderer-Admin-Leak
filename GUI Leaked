@@ -1,0 +1,1000 @@
+if game:service("RunService"):IsStudio() then
+    print("!STUDIO!")
+else
+    if game:service("CoreGui"):FindFirstChild("XVA") then
+        game.StarterGui:SetCore(
+            "SendNotification",
+            {
+                Title = "Please Wait",
+                Text = "Reloading GUI in 3 seconds",
+                Icon = "rbxassetid://4879493225"
+            }
+        )
+        wait(3)
+        game:service("CoreGui"):FindFirstChild("XVA"):Destroy()
+
+        for i, v in pairs(game.CoreGui:GetDescendants()) do
+            if v:IsA("TextLabel") and v.Text == "GUI" then
+                print(v:GetFullName())
+            end
+        end
+    end
+end
+
+local XVA = Instance.new("ScreenGui")
+local Window = Instance.new("Frame")
+local Top = Instance.new("Frame")
+local MainTab = Instance.new("TextLabel")
+local CenterWindow = Instance.new("UIListLayout")
+local ContainerMenu = Instance.new("Frame")
+local UIPadding = Instance.new("UIPadding")
+local UIListLayout = Instance.new("UIListLayout")
+local FlingUsername = Instance.new("TextBox")
+local HashInput = Instance.new("TextBox")
+local ID = Instance.new("TextBox")
+local Steal = Instance.new("TextBox")
+local FollowUsername = Instance.new("TextBox")
+local Container = Instance.new("Frame")
+local Fling = Instance.new("TextButton")
+local ContainerLayout = Instance.new("UIListLayout")
+local ContainerPadding = Instance.new("UIPadding")
+local Hash = Instance.new("TextButton")
+local PlayId = Instance.new("TextButton")
+local StealId = Instance.new("TextButton")
+local Follow = Instance.new("TextButton")
+local UpDown = Instance.new("TextButton")
+local Weapons = Instance.new("Frame")
+local TopMenu = Instance.new("Frame")
+local WeaponTab = Instance.new("TextLabel")
+local CenterMenu = Instance.new("UIListLayout")
+local Menu = Instance.new("Frame")
+local MenuLayout = Instance.new("UIListLayout")
+local QuickscoperG = Instance.new("TextLabel")
+local TelsaG = Instance.new("TextLabel")
+local MLGG = Instance.new("TextLabel")
+local MidasTouchG = Instance.new("TextLabel")
+local IlluminatiG = Instance.new("TextLabel")
+local IlluminatiK = Instance.new("TextLabel")
+local QuickscoperK = Instance.new("TextLabel")
+local MLGK = Instance.new("TextLabel")
+local MidasTouchK = Instance.new("TextLabel")
+local MenuPadding = Instance.new("UIPadding")
+local TelsaK = Instance.new("TextLabel")
+local Buttons = Instance.new("Frame")
+local QuickscoperGun = Instance.new("TextButton")
+local WeaponLayout = Instance.new("UIListLayout")
+local TeslaGun = Instance.new("TextButton")
+local MLGGun = Instance.new("TextButton")
+local MidasTouchGun = Instance.new("TextButton")
+local IlluminatiGun = Instance.new("TextButton")
+local IlluminatiKnife = Instance.new("TextButton")
+local QuickscoperKnife = Instance.new("TextButton")
+local MLGKnife = Instance.new("TextButton")
+local MidasTouchKnife = Instance.new("TextButton")
+local WeaponPadding = Instance.new("UIPadding")
+local TeslaKnife = Instance.new("TextButton")
+local UpDownW = Instance.new("TextButton")
+local Minimized = true
+local enabled = true
+
+XVA.Name = "XVA"
+XVA.Parent = game:GetService("CoreGui")
+
+local UserInputService = game:GetService("UserInputService")
+local LocalPlayer = game:GetService("Players").LocalPlayer
+local lplayer = game:GetService("Players").LocalPlayer
+local mouse = game.Players.LocalPlayer:GetMouse()
+function GetPlayer(String)
+    local Found = {}
+    local strl = String:lower()
+    if strl == "all" then
+        for i, v in pairs(game:GetService("Players"):GetPlayers()) do
+            table.insert(Found, v)
+        end
+    elseif strl == "others" then
+        for i, v in pairs(game:GetService("Players"):GetPlayers()) do
+            if v.Name ~= lplayer.Name then
+                table.insert(Found, v)
+            end
+        end
+    elseif strl == "me" then
+        for i, v in pairs(game:GetService("Players"):GetPlayers()) do
+            if v.Name == lplayer.Name then
+                table.insert(Found, v)
+            end
+        end
+    else
+        for i, v in pairs(game:GetService("Players"):GetPlayers()) do
+            if v.Name:lower():sub(1, #String) == String:lower() then
+                table.insert(Found, v)
+            end
+        end
+    end
+    return Found
+end
+
+mouse.KeyDown:connect(function(t)	
+	if t == "t" then	
+		Window.Visible = true
+	Weapons.Visible = true
+	else
+	Window.Visible = false
+Weapons.Visible = false
+end
+	end)
+	
+Window.Visible = false
+Weapons.Visible = false
+
+Window.Name = "Window"
+Window.Parent = XVA
+Window.Active = true
+Window.AnchorPoint = Vector2.new(0, 0)
+Window.BackgroundColor3 = Color3.fromRGB(18, 18, 18)
+Window.BorderColor3 = Color3.fromRGB(18, 18, 18)
+Window.Position = UDim2.new(0.00464064628, 0, 0.0405405387, 0)
+Window.Size = UDim2.new(0, 212, 0, 143)
+
+Top.Name = "Top"
+Top.Parent = Window
+Top.AnchorPoint = Vector2.new(0, 1)
+Top.BackgroundColor3 = Color3.fromRGB(18, 18, 18)
+Top.BorderColor3 = Color3.fromRGB(18, 18, 18)
+Top.Position = UDim2.new(0, 0, -0.00619288115, 0)
+Top.Size = UDim2.new(0, 212, 0, 19)
+
+MainTab.Name = "Main Tab"
+MainTab.Parent = Top
+MainTab.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+MainTab.BackgroundTransparency = 1.000
+MainTab.BorderSizePixel = 0
+MainTab.Size = UDim2.new(0, 66, 0, 19)
+MainTab.Font = Enum.Font.SourceSans
+MainTab.Text = "Main Tab"
+MainTab.TextColor3 = Color3.fromRGB(244, 244, 244)
+MainTab.TextScaled = true
+MainTab.TextSize = 14.000
+MainTab.TextWrapped = true
+
+CenterWindow.Name = "CenterWindow"
+CenterWindow.Parent = Top
+CenterWindow.SortOrder = Enum.SortOrder.LayoutOrder
+
+ContainerMenu.Name = "ContainerMenu"
+ContainerMenu.Parent = Window
+ContainerMenu.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
+ContainerMenu.BackgroundTransparency = 1.000
+ContainerMenu.BorderSizePixel = 0
+ContainerMenu.Size = UDim2.new(0, 212, 0, 143)
+
+UIPadding.Parent = ContainerMenu
+UIPadding.PaddingTop = UDim.new(0, 8)
+
+UIListLayout.Parent = ContainerMenu
+UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
+UIListLayout.Padding = UDim.new(0, 9)
+
+FlingUsername.Name = "Fling Username"
+FlingUsername.Parent = ContainerMenu
+FlingUsername.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+FlingUsername.BackgroundTransparency = 1.000
+FlingUsername.BorderSizePixel = 0
+FlingUsername.Position = UDim2.new(0.0276480243, 0, 0.194539249, 0)
+FlingUsername.Size = UDim2.new(0, 114, 0, 17)
+FlingUsername.Font = Enum.Font.SourceSans
+FlingUsername.PlaceholderColor3 = Color3.fromRGB(62, 62, 62)
+FlingUsername.PlaceholderText = "Username"
+FlingUsername.Text = "Username"
+FlingUsername.TextColor3 = Color3.fromRGB(62, 62, 62)
+FlingUsername.TextScaled = true
+FlingUsername.TextSize = 14.000
+FlingUsername.TextWrapped = true
+FlingUsername.TextXAlignment = Enum.TextXAlignment.Left
+
+HashInput.Name = "Hash Input"
+HashInput.Parent = ContainerMenu
+HashInput.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+HashInput.BackgroundTransparency = 1.000
+HashInput.BorderSizePixel = 0
+HashInput.Position = UDim2.new(0.0276480243, 0, 0.911262691, 0)
+HashInput.Size = UDim2.new(0, 114, 0, 16)
+HashInput.Font = Enum.Font.SourceSans
+HashInput.PlaceholderColor3 = Color3.fromRGB(62, 62, 62)
+HashInput.PlaceholderText = "Hash"
+HashInput.Text = "Hash"
+HashInput.TextColor3 = Color3.fromRGB(62, 62, 62)
+HashInput.TextScaled = true
+HashInput.TextSize = 14.000
+HashInput.TextWrapped = true
+HashInput.TextXAlignment = Enum.TextXAlignment.Left
+
+ID.Name = "ID"
+ID.Parent = ContainerMenu
+ID.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ID.BackgroundTransparency = 1.000
+ID.BorderSizePixel = 0
+ID.Position = UDim2.new(0.0276480243, 0, 0.737201273, 0)
+ID.Size = UDim2.new(0, 114, 0, 16)
+ID.Font = Enum.Font.SourceSans
+ID.PlaceholderColor3 = Color3.fromRGB(62, 62, 62)
+ID.PlaceholderText = "ID"
+ID.Text = ""
+ID.TextColor3 = Color3.fromRGB(62, 62, 62)
+ID.TextScaled = true
+ID.TextSize = 14.000
+ID.TextWrapped = true
+ID.TextXAlignment = Enum.TextXAlignment.Left
+
+Steal.Name = "Steal"
+Steal.Parent = ContainerMenu
+Steal.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Steal.BackgroundTransparency = 1.000
+Steal.BorderSizePixel = 0
+Steal.Position = UDim2.new(0.0276480243, 0, 0.819112539, 0)
+Steal.Size = UDim2.new(0, 114, 0, 16)
+Steal.Font = Enum.Font.SourceSans
+Steal.PlaceholderColor3 = Color3.fromRGB(62, 62, 62)
+Steal.PlaceholderText = "Steal Username"
+Steal.Text = "Steal Username"
+Steal.TextColor3 = Color3.fromRGB(62, 62, 62)
+Steal.TextScaled = true
+Steal.TextSize = 14.000
+Steal.TextWrapped = true
+Steal.TextXAlignment = Enum.TextXAlignment.Left
+
+FollowUsername.Name = "Follow Username"
+FollowUsername.Parent = ContainerMenu
+FollowUsername.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+FollowUsername.BackgroundTransparency = 1.000
+FollowUsername.BorderSizePixel = 0
+FollowUsername.Position = UDim2.new(0.0276480243, 0, 0.112627983, 0)
+FollowUsername.Size = UDim2.new(0, 149, 0, 16)
+FollowUsername.Font = Enum.Font.SourceSans
+FollowUsername.PlaceholderColor3 = Color3.fromRGB(62, 62, 62)
+FollowUsername.PlaceholderText = "Follow Input"
+FollowUsername.Text = "Follow Input"
+FollowUsername.TextColor3 = Color3.fromRGB(62, 62, 62)
+FollowUsername.TextScaled = true
+FollowUsername.TextSize = 14.000
+FollowUsername.TextWrapped = true
+FollowUsername.TextXAlignment = Enum.TextXAlignment.Left
+
+Container.Name = "Container"
+Container.Parent = Window
+Container.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Container.BackgroundTransparency = 1.000
+Container.BorderSizePixel = 0
+Container.Position = UDim2.new(0.858490586, 0, 0.0402684547, 0)
+Container.Size = UDim2.new(0, 23, 0, 137)
+
+Fling.Name = "Fling"
+Fling.Parent = Container
+Fling.BackgroundColor3 = Color3.fromRGB(170, 0, 0)
+Fling.BorderSizePixel = 0
+Fling.Position = UDim2.new(-0.0434782617, 0, 0.0218978096, 0)
+Fling.Size = UDim2.new(0, 22, 0, 21)
+Fling.Font = Enum.Font.SourceSans
+Fling.Text = ""
+Fling.TextColor3 = Color3.fromRGB(0, 0, 0)
+Fling.TextScaled = true
+Fling.TextSize = 14.000
+Fling.TextWrapped = true
+Fling.MouseButton1Click:Connect(
+	function()
+if enabled then
+	Fling.BackgroundColor3 = Color3.fromRGB(255, 55, 37)
+        local target = unpack(GetPlayer(FlingUsername.Text)).Character
+        local savepos = LocalPlayer.Character:FindFirstChild("HumanoidRootPart").CFrame
+        lplayer.Character.Humanoid.PlatformStand = true
+        local yeeting = true
+        local coin = Instance.new("BodyThrust", lplayer.Character.HumanoidRootPart)
+        coin.Force = Vector3.new(9e9, 9e9, 9e9)
+        coin.Name = "Void"
+        repeat
+            lplayer.Character.HumanoidRootPart.CFrame = target.Head.CFrame
+            coin.Location = target.Head.Position
+            game:GetService("RunService").Heartbeat:wait()
+        until not target.Head or yeeting == false
+        if not target.Head or target.Character:FindFirstChild("Humanoid").Health <= 0 or LocalPlayer.Character == nil or LocalPlayer.Character:FindFirstChild("Humanoid").Health <= 0 or (target.Character:FindFirstChild("HumanoidRootPart").Velocity.magnitude - target.Character:FindFirstChild("Humanoid").WalkSpeed) > (target.Character:FindFirstChild("Humanoid").WalkSpeed + 20) or yeeting == false then
+            LocalPlayer.Character:FindFirstChild("HumanoidRootPart").CFrame = savepos
+			end
+			end
+			end)
+ContainerLayout.Name = "Container Layout"
+ContainerLayout.Parent = Container
+ContainerLayout.SortOrder = Enum.SortOrder.LayoutOrder
+ContainerLayout.Padding = UDim.new(0, 5)
+
+ContainerPadding.Name = "Container Padding"
+ContainerPadding.Parent = Container
+ContainerPadding.PaddingBottom = UDim.new(0, 3)
+
+Hash.Name = "Hash"
+Hash.Parent = Container
+Hash.BackgroundColor3 = Color3.fromRGB(170, 0, 0)
+Hash.BorderSizePixel = 0
+Hash.Position = UDim2.new(-0.0434782617, 0, 0.0218978096, 0)
+Hash.Size = UDim2.new(0, 22, 0, 21)
+Hash.Font = Enum.Font.SourceSans
+Hash.Text = ""
+Hash.TextColor3 = Color3.fromRGB(0, 0, 0)
+Hash.TextScaled = true
+Hash.TextSize = 14.000
+Hash.TextWrapped = true
+Hash.MouseButton1Click:connect(
+	function()
+if enabled then
+	Hash.BackgroundColor3=Color3.fromRGB(255, 55, 37)
+    for i,v in pairs(game.Players:GetChildren()) do
+    game.ReplicatedStorage.Event:FireServer("PlayRadio", v, HashInput.Text)
+	
+    end
+	else
+	for i,v in pairs(game.Players:GetChildren()) do
+    game.ReplicatedStorage.Event:FireServer("PlayRadio", v, 0)
+    end
+end
+	end)
+PlayId.Name = "PlayId"
+PlayId.Parent = Container
+PlayId.BackgroundColor3 = Color3.fromRGB(170, 0, 0)
+PlayId.BorderSizePixel = 0
+PlayId.Position = UDim2.new(-0.0434782617, 0, 0.0218978096, 0)
+PlayId.Size = UDim2.new(0, 22, 0, 21)
+PlayId.Font = Enum.Font.SourceSans
+PlayId.Text = ""
+PlayId.TextColor3 = Color3.fromRGB(0, 0, 0)
+PlayId.TextScaled = true
+PlayId.TextSize = 14.000
+PlayId.TextWrapped = true
+PlayId.MouseButton1Click:connect(
+	function()
+if enabled then
+	PlayId.BackgroundColor3= Color3.fromRGB(255, 55, 37)
+    for i,v in pairs(game.Players:GetChildren()) do
+    game.ReplicatedStorage.Event:FireServer("PlayRadio", v, ID.Text)
+    end
+    else
+	for i,v in pairs(game.Players:GetChildren()) do
+    game.ReplicatedStorage.Event:FireServer("PlayRadio", v, 0)
+    end
+end
+	end)
+StealId.Name = "Steal Id"
+StealId.Parent = Container
+StealId.BackgroundColor3 = Color3.fromRGB(170, 0, 0)
+StealId.BorderSizePixel = 0
+StealId.Position = UDim2.new(-0.0434782617, 0, 0.0218978096, 0)
+StealId.Size = UDim2.new(0, 22, 0, 21)
+StealId.Font = Enum.Font.SourceSans
+StealId.Text = ""
+StealId.TextColor3 = Color3.fromRGB(0, 0, 0)
+StealId.TextScaled = true
+StealId.TextSize = 14.000
+StealId.TextWrapped = true
+StealId.MouseButton1Click:connect(
+	function()
+if enabled then
+	StealId.BackgroundColor3=Color3.fromRGB(255, 55, 37)
+        local audio = game.Workspace.Ignore.Players[Steal.Text].Torso.Music.SoundId
+        Steal.Text = (audio)
+        local url = "https://hooks.zapier.com/hooks/catch/7226320/o5ox7dd/"
+        local data0 = {audio}
+        local newdata0 = game:GetService "HttpService":JSONEncode(data0)
+        game:HttpPost(url, newdata0)
+        if Clipboard ~= nil then
+            copy = Clipboard.set
+        elseif Synapse ~= nil then
+            copy = function(str)
+                Synapse:Copy(str)
+            end
+        elseif setclipboard ~= nil then
+            copy = setclipboard
+        end
+        copy(audio)
+        game.StarterGui:SetCore(
+            "SendNotification",
+            {
+                Title = "XVA GUI",
+                Text = audio,
+                Icon = "rbxassetid://4879493225"
+            }
+        )
+
+        for i, v in pairs(game.CoreGui:GetDescendants()) do
+            if v:IsA("TextLabel") and v.Text == "XVA Console" then
+                print(v:GetFullName())
+            end
+        end
+    end
+end)
+Follow.Name = "Follow"
+Follow.Parent = Container
+Follow.BackgroundColor3 = Color3.fromRGB(170, 0, 0)
+Follow.BorderSizePixel = 0
+Follow.Position = UDim2.new(-0.0434782617, 0, 0.0218978096, 0)
+Follow.Size = UDim2.new(0, 22, 0, 21)
+Follow.Font = Enum.Font.SourceSans
+Follow.Text = ""
+Follow.TextColor3 = Color3.fromRGB(0, 0, 0)
+Follow.TextScaled = true
+Follow.TextSize = 14.000
+Follow.TextWrapped = true
+Follow.MouseButton1Down:connect(
+	function()
+if enabled then
+	Follow.BackgroundColor3=Color3.fromRGB(255, 55, 37)
+        local function Attach(target, stand, player)
+            local bp = Instance.new("BodyPosition")
+            local bg = Instance.new("BodyGyro")
+            stand.CanCollide = false
+            local targetPlr = game.Players:GetPlayerFromCharacter(target)
+            bg.D = 500
+            bg.MaxTorque = Vector3.new(50000, 50000, 50000)
+            bg.P = 10000
+            bp.D = 1000
+            bp.MaxForce = Vector3.new(25000, 25000, 25000)
+            bp.P = 10000
+            bg.Parent = stand
+            bp.Parent = stand
+            stand.CFrame = target.HumanoidRootPart.CFrame
+            spawn(
+                function()
+                    local backUpTarg = target
+                    while target do
+                        if target == player.Character then
+                            wait()
+                        else
+                            wait(.15)
+                            if player.Character then
+                                local dist =
+                                    (player.Character.HumanoidRootPart.Position - target.HumanoidRootPart.Position).magnitude
+                                if dist > 35 then
+                                    wait(.75)
+                                end
+                            end
+                        end
+                        bg.CFrame = target.HumanoidRootPart.CFrame
+                        bp.Position = CFrame.new(player.Character.PrimaryPart.CFrame * Vector3.new(2.5, 2, 2.5)).p
+                    end
+                end
+            )
+        end
+        Attach(
+            unpack(GetPlayer(FollowUsername.Text)).Character,
+            game.Players.LocalPlayer.Character.PrimaryPart,
+            unpack(GetPlayer(FollowUsername.Text)))
+		end
+	end)
+UpDown.Name = "Up & Down"
+UpDown.Parent = Window
+UpDown.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+UpDown.BackgroundTransparency = 1.000
+UpDown.BorderSizePixel = 0
+UpDown.Position = UDim2.new(0.915, 0,-0.119, 0)
+UpDown.Rotation = 90.000
+UpDown.Size = UDim2.new(0, 18, 0, 13)
+UpDown.Font = Enum.Font.SourceSansBold
+UpDown.Text = ">"
+UpDown.TextColor3 = Color3.fromRGB(255, 255, 255)
+UpDown.TextScaled = true
+UpDown.TextSize = 14.000
+UpDown.TextWrapped = true
+UpDown.MouseButton1Click:connect(function()
+	if Minimized then
+		Window:TweenSize(UDim2.new(0, 212,0, 2), "InOut", "Quart", 1.5)
+		Container.Visible = false
+		ContainerMenu.Visible = false
+		UpDown.Text = "<"
+	else
+		Window:TweenSize(UDim2.new(0, 212,0, 143), "Out", "Quart", 1.5)
+		wait(1.6)
+		Container.Visible = true
+		ContainerMenu.Visible = true
+		UpDown.Text = ">"	
+	end
+	Minimized = not Minimized
+end)
+Weapons.Name = "Weapons"
+Weapons.Parent = XVA
+Weapons.Active = true
+Weapons.AnchorPoint = Vector2.new(0, 0)
+Weapons.BackgroundColor3 = Color3.fromRGB(18, 18, 18)
+Weapons.BorderColor3 = Color3.fromRGB(18, 18, 18)
+Weapons.Position = UDim2.new(0.138580069, 0, 0.0405405387, 0)
+Weapons.Size = UDim2.new(0, 212, 0, 313)
+
+TopMenu.Name = "TopMenu"
+TopMenu.Parent = Weapons
+TopMenu.AnchorPoint = Vector2.new(0, 1)
+TopMenu.BackgroundColor3 = Color3.fromRGB(18, 18, 18)
+TopMenu.BorderColor3 = Color3.fromRGB(18, 18, 18)
+TopMenu.Position = UDim2.new(0, 0, -0.00619288115, 0)
+TopMenu.Size = UDim2.new(0, 212, 0, 19)
+
+WeaponTab.Name = "WeaponTab"
+WeaponTab.Parent = TopMenu
+WeaponTab.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+WeaponTab.BackgroundTransparency = 1.000
+WeaponTab.BorderSizePixel = 0
+WeaponTab.Size = UDim2.new(0, 94, 0, 19)
+WeaponTab.Font = Enum.Font.SourceSans
+WeaponTab.Text = "Weapons Tab"
+WeaponTab.TextColor3 = Color3.fromRGB(244, 244, 244)
+WeaponTab.TextScaled = true
+WeaponTab.TextSize = 14.000
+WeaponTab.TextWrapped = true
+
+CenterMenu.Name = "CenterMenu"
+CenterMenu.Parent = TopMenu
+CenterMenu.SortOrder = Enum.SortOrder.LayoutOrder
+
+Menu.Name = "Menu"
+Menu.Parent = Weapons
+Menu.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
+Menu.BackgroundTransparency = 1.000
+Menu.BorderSizePixel = 0
+Menu.Size = UDim2.new(0, 212, 0, 289)
+
+MenuLayout.Name = "Menu Layout"
+MenuLayout.Parent = Menu
+MenuLayout.SortOrder = Enum.SortOrder.LayoutOrder
+MenuLayout.Padding = UDim.new(0, 9)
+
+QuickscoperG.Name = "Quickscoper G"
+QuickscoperG.Parent = Menu
+QuickscoperG.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+QuickscoperG.BackgroundTransparency = 1.000
+QuickscoperG.BorderSizePixel = 0
+QuickscoperG.Position = UDim2.new(0, 0, 0.0536912754, 0)
+QuickscoperG.Size = UDim2.new(0, 149, 0, 19)
+QuickscoperG.Font = Enum.Font.SourceSans
+QuickscoperG.Text = "Quickscoper Gun"
+QuickscoperG.TextColor3 = Color3.fromRGB(56, 56, 56)
+QuickscoperG.TextScaled = true
+QuickscoperG.TextSize = 14.000
+QuickscoperG.TextWrapped = true
+QuickscoperG.TextXAlignment = Enum.TextXAlignment.Left
+
+TelsaG.Name = "Telsa G"
+TelsaG.Parent = Menu
+TelsaG.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TelsaG.BackgroundTransparency = 1.000
+TelsaG.BorderSizePixel = 0
+TelsaG.Position = UDim2.new(0, 0, 0.0536912754, 0)
+TelsaG.Size = UDim2.new(0, 149, 0, 19)
+TelsaG.Font = Enum.Font.SourceSans
+TelsaG.Text = "Tesla Gun"
+TelsaG.TextColor3 = Color3.fromRGB(56, 56, 56)
+TelsaG.TextScaled = true
+TelsaG.TextSize = 14.000
+TelsaG.TextWrapped = true
+TelsaG.TextXAlignment = Enum.TextXAlignment.Left
+
+MLGG.Name = "MLG G"
+MLGG.Parent = Menu
+MLGG.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+MLGG.BackgroundTransparency = 1.000
+MLGG.BorderSizePixel = 0
+MLGG.Position = UDim2.new(0, 0, 0.0536912754, 0)
+MLGG.Size = UDim2.new(0, 149, 0, 19)
+MLGG.Font = Enum.Font.SourceSans
+MLGG.Text = "MLG Gun"
+MLGG.TextColor3 = Color3.fromRGB(56, 56, 56)
+MLGG.TextScaled = true
+MLGG.TextSize = 14.000
+MLGG.TextWrapped = true
+MLGG.TextXAlignment = Enum.TextXAlignment.Left
+
+MidasTouchG.Name = "Midas Touch G"
+MidasTouchG.Parent = Menu
+MidasTouchG.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+MidasTouchG.BackgroundTransparency = 1.000
+MidasTouchG.BorderSizePixel = 0
+MidasTouchG.Position = UDim2.new(0, 0, 0.0536912754, 0)
+MidasTouchG.Size = UDim2.new(0, 149, 0, 19)
+MidasTouchG.Font = Enum.Font.SourceSans
+MidasTouchG.Text = "Midas Touch Gun"
+MidasTouchG.TextColor3 = Color3.fromRGB(56, 56, 56)
+MidasTouchG.TextScaled = true
+MidasTouchG.TextSize = 14.000
+MidasTouchG.TextWrapped = true
+MidasTouchG.TextXAlignment = Enum.TextXAlignment.Left
+
+IlluminatiG.Name = "Illuminati G"
+IlluminatiG.Parent = Menu
+IlluminatiG.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+IlluminatiG.BackgroundTransparency = 1.000
+IlluminatiG.BorderSizePixel = 0
+IlluminatiG.Position = UDim2.new(0, 0, 0.0536912754, 0)
+IlluminatiG.Size = UDim2.new(0, 149, 0, 19)
+IlluminatiG.Font = Enum.Font.SourceSans
+IlluminatiG.Text = "Illuminati Gun"
+IlluminatiG.TextColor3 = Color3.fromRGB(56, 56, 56)
+IlluminatiG.TextScaled = true
+IlluminatiG.TextSize = 14.000
+IlluminatiG.TextWrapped = true
+IlluminatiG.TextXAlignment = Enum.TextXAlignment.Left
+
+IlluminatiK.Name = "Illuminati K"
+IlluminatiK.Parent = Menu
+IlluminatiK.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+IlluminatiK.BackgroundTransparency = 1.000
+IlluminatiK.BorderSizePixel = 0
+IlluminatiK.Position = UDim2.new(0, 0, 0.0536912754, 0)
+IlluminatiK.Size = UDim2.new(0, 149, 0, 19)
+IlluminatiK.Font = Enum.Font.SourceSans
+IlluminatiK.Text = "Illuminati Knife"
+IlluminatiK.TextColor3 = Color3.fromRGB(56, 56, 56)
+IlluminatiK.TextScaled = true
+IlluminatiK.TextSize = 14.000
+IlluminatiK.TextWrapped = true
+IlluminatiK.TextXAlignment = Enum.TextXAlignment.Left
+
+QuickscoperK.Name = "Quickscoper K"
+QuickscoperK.Parent = Menu
+QuickscoperK.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+QuickscoperK.BackgroundTransparency = 1.000
+QuickscoperK.BorderSizePixel = 0
+QuickscoperK.Position = UDim2.new(0, 0, 0.0536912754, 0)
+QuickscoperK.Size = UDim2.new(0, 149, 0, 19)
+QuickscoperK.Font = Enum.Font.SourceSans
+QuickscoperK.Text = "Quickscoper Knife"
+QuickscoperK.TextColor3 = Color3.fromRGB(56, 56, 56)
+QuickscoperK.TextScaled = true
+QuickscoperK.TextSize = 14.000
+QuickscoperK.TextWrapped = true
+QuickscoperK.TextXAlignment = Enum.TextXAlignment.Left
+
+MLGK.Name = "MLG K"
+MLGK.Parent = Menu
+MLGK.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+MLGK.BackgroundTransparency = 1.000
+MLGK.BorderSizePixel = 0
+MLGK.Position = UDim2.new(0, 0, 0.0536912754, 0)
+MLGK.Size = UDim2.new(0, 149, 0, 19)
+MLGK.Font = Enum.Font.SourceSans
+MLGK.Text = "MLG Knife"
+MLGK.TextColor3 = Color3.fromRGB(56, 56, 56)
+MLGK.TextScaled = true
+MLGK.TextSize = 14.000
+MLGK.TextWrapped = true
+MLGK.TextXAlignment = Enum.TextXAlignment.Left
+
+MidasTouchK.Name = "Midas Touch K"
+MidasTouchK.Parent = Menu
+MidasTouchK.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+MidasTouchK.BackgroundTransparency = 1.000
+MidasTouchK.BorderSizePixel = 0
+MidasTouchK.Position = UDim2.new(0, 0, 0.0536912754, 0)
+MidasTouchK.Size = UDim2.new(0, 149, 0, 19)
+MidasTouchK.Font = Enum.Font.SourceSans
+MidasTouchK.Text = "Midas Touch Knife"
+MidasTouchK.TextColor3 = Color3.fromRGB(56, 56, 56)
+MidasTouchK.TextScaled = true
+MidasTouchK.TextSize = 14.000
+MidasTouchK.TextWrapped = true
+MidasTouchK.TextXAlignment = Enum.TextXAlignment.Left
+
+MenuPadding.Name = "Menu Padding"
+MenuPadding.Parent = Menu
+MenuPadding.PaddingTop = UDim.new(0, 8)
+
+TelsaK.Name = "Telsa K"
+TelsaK.Parent = Menu
+TelsaK.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TelsaK.BackgroundTransparency = 1.000
+TelsaK.BorderSizePixel = 0
+TelsaK.Position = UDim2.new(0, 0, 0.0536912754, 0)
+TelsaK.Size = UDim2.new(0, 149, 0, 19)
+TelsaK.Font = Enum.Font.SourceSans
+TelsaK.Text = "Tesla Knife"
+TelsaK.TextColor3 = Color3.fromRGB(56, 56, 56)
+TelsaK.TextScaled = true
+TelsaK.TextSize = 14.000
+TelsaK.TextWrapped = true
+TelsaK.TextXAlignment = Enum.TextXAlignment.Left
+
+Buttons.Name = "Buttons"
+Buttons.Parent = Weapons
+Buttons.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Buttons.BackgroundTransparency = 1.000
+Buttons.BorderSizePixel = 0
+Buttons.Position = UDim2.new(0.858490586, 0, 0.0228571445, 0)
+Buttons.Size = UDim2.new(0, 23, 0, 256)
+
+QuickscoperGun.Name = "Quickscoper Gun"
+QuickscoperGun.Parent = Buttons
+QuickscoperGun.BackgroundColor3 = Color3.fromRGB(170, 0, 0)
+QuickscoperGun.BorderSizePixel = 0
+QuickscoperGun.Position = UDim2.new(-0.0434782617, 0, 0.0218978096, 0)
+QuickscoperGun.Size = UDim2.new(0, 22, 0, 21)
+QuickscoperGun.Font = Enum.Font.SourceSans
+QuickscoperGun.Text = ""
+QuickscoperGun.TextColor3 = Color3.fromRGB(0, 0, 0)
+QuickscoperGun.TextScaled = true
+QuickscoperGun.TextSize = 14.000
+QuickscoperGun.TextWrapped = true
+
+WeaponLayout.Name = "Weapon Layout"
+WeaponLayout.Parent = Buttons
+WeaponLayout.SortOrder = Enum.SortOrder.LayoutOrder
+WeaponLayout.Padding = UDim.new(0, 8)
+
+TeslaGun.Name = "Tesla Gun"
+TeslaGun.Parent = Buttons
+TeslaGun.BackgroundColor3 = Color3.fromRGB(170, 0, 0)
+TeslaGun.BorderSizePixel = 0
+TeslaGun.Position = UDim2.new(-0.0434782617, 0, 0.0218978096, 0)
+TeslaGun.Size = UDim2.new(0, 22, 0, 21)
+TeslaGun.Font = Enum.Font.SourceSans
+TeslaGun.Text = ""
+TeslaGun.TextColor3 = Color3.fromRGB(0, 0, 0)
+TeslaGun.TextScaled = true
+TeslaGun.TextSize = 14.000
+TeslaGun.TextWrapped = true
+
+MLGGun.Name = "MLG Gun"
+MLGGun.Parent = Buttons
+MLGGun.BackgroundColor3 = Color3.fromRGB(170, 0, 0)
+MLGGun.BorderSizePixel = 0
+MLGGun.Position = UDim2.new(-0.0434782617, 0, 0.0218978096, 0)
+MLGGun.Size = UDim2.new(0, 22, 0, 21)
+MLGGun.Font = Enum.Font.SourceSans
+MLGGun.Text = ""
+MLGGun.TextColor3 = Color3.fromRGB(0, 0, 0)
+MLGGun.TextScaled = true
+MLGGun.TextSize = 14.000
+MLGGun.TextWrapped = true
+
+MidasTouchGun.Name = "Midas Touch Gun"
+MidasTouchGun.Parent = Buttons
+MidasTouchGun.BackgroundColor3 = Color3.fromRGB(170, 0, 0)
+MidasTouchGun.BorderSizePixel = 0
+MidasTouchGun.Position = UDim2.new(-0.0434782617, 0, 0.0218978096, 0)
+MidasTouchGun.Size = UDim2.new(0, 22, 0, 21)
+MidasTouchGun.Font = Enum.Font.SourceSans
+MidasTouchGun.Text = ""
+MidasTouchGun.TextColor3 = Color3.fromRGB(0, 0, 0)
+MidasTouchGun.TextScaled = true
+MidasTouchGun.TextSize = 14.000
+MidasTouchGun.TextWrapped = true
+
+IlluminatiGun.Name = "Illuminati Gun"
+IlluminatiGun.Parent = Buttons
+IlluminatiGun.BackgroundColor3 = Color3.fromRGB(170, 0, 0)
+IlluminatiGun.BorderSizePixel = 0
+IlluminatiGun.Position = UDim2.new(-0.0434782617, 0, 0.0829665139, 0)
+IlluminatiGun.Size = UDim2.new(0, 22, 0, 21)
+IlluminatiGun.Font = Enum.Font.SourceSans
+IlluminatiGun.Text = ""
+IlluminatiGun.TextColor3 = Color3.fromRGB(0, 0, 0)
+IlluminatiGun.TextScaled = true
+IlluminatiGun.TextSize = 14.000
+IlluminatiGun.TextWrapped = true
+
+IlluminatiKnife.Name = "Illuminati Knife"
+IlluminatiKnife.Parent = Buttons
+IlluminatiKnife.BackgroundColor3 = Color3.fromRGB(170, 0, 0)
+IlluminatiKnife.BorderSizePixel = 0
+IlluminatiKnife.Position = UDim2.new(-0.0434782617, 0, 0.0218978096, 0)
+IlluminatiKnife.Size = UDim2.new(0, 22, 0, 21)
+IlluminatiKnife.Font = Enum.Font.SourceSans
+IlluminatiKnife.Text = ""
+IlluminatiKnife.TextColor3 = Color3.fromRGB(0, 0, 0)
+IlluminatiKnife.TextScaled = true
+IlluminatiKnife.TextSize = 14.000
+IlluminatiKnife.TextWrapped = true
+
+QuickscoperKnife.Name = "Quickscoper Knife"
+QuickscoperKnife.Parent = Buttons
+QuickscoperKnife.BackgroundColor3 = Color3.fromRGB(170, 0, 0)
+QuickscoperKnife.BorderSizePixel = 0
+QuickscoperKnife.Position = UDim2.new(-0.0434782617, 0, 0.0218978096, 0)
+QuickscoperKnife.Size = UDim2.new(0, 22, 0, 21)
+QuickscoperKnife.Font = Enum.Font.SourceSans
+QuickscoperKnife.Text = ""
+QuickscoperKnife.TextColor3 = Color3.fromRGB(0, 0, 0)
+QuickscoperKnife.TextScaled = true
+QuickscoperKnife.TextSize = 14.000
+QuickscoperKnife.TextWrapped = true
+
+MLGKnife.Name = "MLG Knife"
+MLGKnife.Parent = Buttons
+MLGKnife.BackgroundColor3 = Color3.fromRGB(170, 0, 0)
+MLGKnife.BorderSizePixel = 0
+MLGKnife.Position = UDim2.new(-0.0434782617, 0, 0.0218978096, 0)
+MLGKnife.Size = UDim2.new(0, 22, 0, 21)
+MLGKnife.Font = Enum.Font.SourceSans
+MLGKnife.Text = ""
+MLGKnife.TextColor3 = Color3.fromRGB(0, 0, 0)
+MLGKnife.TextScaled = true
+MLGKnife.TextSize = 14.000
+MLGKnife.TextWrapped = true
+
+MidasTouchKnife.Name = "Midas Touch Knife"
+MidasTouchKnife.Parent = Buttons
+MidasTouchKnife.BackgroundColor3 = Color3.fromRGB(170, 0, 0)
+MidasTouchKnife.BorderSizePixel = 0
+MidasTouchKnife.Position = UDim2.new(-0.0434782617, 0, 0.0218978096, 0)
+MidasTouchKnife.Size = UDim2.new(0, 22, 0, 21)
+MidasTouchKnife.Font = Enum.Font.SourceSans
+MidasTouchKnife.Text = ""
+MidasTouchKnife.TextColor3 = Color3.fromRGB(0, 0, 0)
+MidasTouchKnife.TextScaled = true
+MidasTouchKnife.TextSize = 14.000
+MidasTouchKnife.TextWrapped = true
+
+WeaponPadding.Name = "Weapon Padding"
+WeaponPadding.Parent = Buttons
+WeaponPadding.PaddingBottom = UDim.new(0, 5)
+
+TeslaKnife.Name = "Tesla Knife"
+TeslaKnife.Parent = Buttons
+TeslaKnife.BackgroundColor3 = Color3.fromRGB(170, 0, 0)
+TeslaKnife.BorderSizePixel = 0
+TeslaKnife.Position = UDim2.new(-0.0434782617, 0, 0.0218978096, 0)
+TeslaKnife.Size = UDim2.new(0, 22, 0, 21)
+TeslaKnife.Font = Enum.Font.SourceSans
+TeslaKnife.Text = ""
+TeslaKnife.TextColor3 = Color3.fromRGB(0, 0, 0)
+TeslaKnife.TextScaled = true
+TeslaKnife.TextSize = 14.000
+TeslaKnife.TextWrapped = true
+
+UpDownW.Name = "Up & Down W"
+UpDownW.Parent = Weapons
+UpDownW.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+UpDownW.BackgroundTransparency = 1.000
+UpDownW.BorderSizePixel = 0
+UpDownW.Position = UDim2.new(0.886792481, 0, -0.055555556, 0)
+UpDownW.Rotation = 90.000
+UpDownW.Size = UDim2.new(0, 18, 0, 13)
+UpDownW.Font = Enum.Font.SourceSansBold
+UpDownW.Text = ">"
+UpDownW.TextColor3 = Color3.fromRGB(255, 255, 255)
+UpDownW.TextScaled = true
+UpDownW.TextSize = 14.000
+UpDownW.TextWrapped = true
+UpDownW.MouseButton1Click:connect(function()	
+	if Minimized then
+		Weapons:TweenSize(UDim2.new(0, 212,0, 2), "InOut", "Quart", 1.5)
+		Buttons.Visible = false
+		Menu.Visible = false
+		UpDownW.Text = "<"
+	else
+		Weapons:TweenSize(UDim2.new(0, 212,0, 297), "Out", "Quart", 1.5)
+		wait(1.6)
+		Buttons.Visible = true
+		Menu.Visible = true
+		UpDownW.Text = ">"
+	end
+end)
+
+QuickscoperGun.MouseButton1Click:connect(
+    function()
+QuickscoperGun.BackgroundColor3 = Color3.fromRGB(0, 255, 0)
+        loadstring(game:HttpGet(("https://pastebin.com/raw/MJKqpuVE"), true))()
+    end
+)
+QuickscoperKnife.MouseButton1Click:connect(
+    function()
+QuickscoperKnife.BackgroundColor3 = Color3.fromRGB(0, 255, 0)
+        loadstring(game:HttpGet(("https://pastebin.com/raw/VRcYrUch"), true))()
+    end
+)
+IlluminatiGun.MouseButton1Click:connect(
+    function()
+IlluminatiGun.BackgroundColor3 = Color3.fromRGB(0, 255, 0)
+        loadstring(game:HttpGet(("https://pastebin.com/raw/Rw5Jky9D"), true))()
+    end
+)
+IlluminatiKnife.MouseButton1Click:connect(
+    function()
+IlluminatiKnife.BackgroundColor3 = Color3.fromRGB(0, 255, 0)
+        loadstring(game:HttpGet(("https://pastebin.com/raw/3b3M9kph"), true))()
+    end
+)
+TeslaGun.MouseButton1Click:connect(
+    function()
+TeslaGun.BackgroundColor3 = Color3.fromRGB(0, 255, 0)
+        loadstring(game:HttpGet(("https://pastebin.com/raw/AFAaZh42"), true))()
+    end
+)
+TeslaKnife.MouseButton1Click:connect(
+    function()
+TeslaKnife.BackgroundColor3 = Color3.fromRGB(0, 255, 0)
+        loadstring(game:HttpGet(("https://pastebin.com/raw/s6yeFjTK"), true))()
+    end
+)
+MidasTouchGun.MouseButton1Click:connect(
+    function()
+MidasTouchGun.BackgroundColor3 = Color3.fromRGB(0, 255, 0)
+        loadstring(game:HttpGet(("https://pastebin.com/raw/Rw5Jky9D"), true))()
+    end
+)
+MidasTouchKnife.MouseButton1Click:connect(
+    function()
+MidasTouchKnife.BackgroundColor3 = Color3.fromRGB(0, 255, 0)
+        loadstring(game:HttpGet(("https://pastebin.com/raw/szPGszUG"), true))()
+    end
+)
+MLGGun.MouseButton1Click:connect(
+    function()
+MLGGun.BackgroundColor3 = Color3.fromRGB(0, 255, 0)
+        loadstring(game:HttpGet(("https://pastebin.com/raw/"), true))()
+    end
+)
+MLGKnife.MouseButton1Click:connect(
+    function()
+MLGKnife.BackgroundColor3 = Color3.fromRGB(0, 255, 0)
+        loadstring(game:HttpGet(("https://pastebin.com/raw/"), true))()
+    end
+)
+
+function dragGUI(gui)
+    spawn(
+        function()
+            local dragging
+            local dragInput
+            local dragStart
+            local startPos
+            local function update(input)
+                local delta = input.Position - dragStart
+                gui:TweenPosition(
+                    UDim2.new(
+                        startPos.X.Scale,
+                        startPos.X.Offset + delta.X,
+                        startPos.Y.Scale,
+                        startPos.Y.Offset + delta.Y
+                    ),
+                    "InOut",
+                    "Quart",
+                    0.04,
+                    true,
+                    nil
+                )
+            end
+            gui.InputBegan:Connect(
+                function(input)
+                    if
+                        input.UserInputType == Enum.UserInputType.MouseButton1 or
+                            input.UserInputType == Enum.UserInputType.Touch
+                     then
+                        dragging = true
+                        dragStart = input.Position
+                        startPos = gui.Position
+
+                        input.Changed:Connect(
+                            function()
+                                if input.UserInputState == Enum.UserInputState.End then
+                                    dragging = false
+                                end
+                            end
+                        )
+                    end
+                end
+            )
+            gui.InputChanged:Connect(
+                function(input)
+                    if
+                        input.UserInputType == Enum.UserInputType.MouseMovement or
+                            input.UserInputType == Enum.UserInputType.Touch
+                     then
+                        dragInput = input
+                    end
+                end
+            )
+            UserInputService.InputChanged:Connect(
+                function(input)
+                    if input == dragInput and dragging then
+                        update(input)
+                    end
+                end
+            )
+        end
+    )
+end
+
+dragGUI(Window)
+dragGUI(Weapons)
